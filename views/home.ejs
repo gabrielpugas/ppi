@@ -40,21 +40,4 @@
         </div>
     </div>
 </body>
-
-<script>
-    document.getElementById('sair').addEventListener('click', function() {
-        fetch('/sair')
-            .then(response => {
-                if (response.ok) {
-                    // Cookie excluído com sucesso, recarrega a página
-                    window.location.reload();
-                } else {
-                    console.error('Falha ao excluir o cookie');
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao excluir o cookie:', error);
-            });
-    });
-</script>
 </html>
