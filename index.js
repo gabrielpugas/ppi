@@ -40,7 +40,7 @@ app.get('/home', (req, res) => {
         res.render('home')
     }
     else {
-        res.render('login')
+        res.redirect('/')
     }
 })
 
@@ -72,8 +72,9 @@ app.get('/3', (req, res) => {
 })
 
 app.get('/sair', (req, res) => {
-    req.session.destroy()
-    res.redirect('/')
+    req.session.destroy((err) => {
+        res.redirect('/') // will always fire after session is destroyed
+      })
 })
 
 app.listen(porta, () => {
