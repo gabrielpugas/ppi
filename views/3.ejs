@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento - Detalhes</title>
+    <link rel="stylesheet" href="../../public/home.css">
+    <link rel="stylesheet" href="../../public/evento.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>Ingressos Online</h1>
+            <nav>
+                <ul>
+                    <li><a href="home">Home</a></li>
+                    <li><a href="home">Eventos</a></li>
+                    <li><a id="sair" href="/sair">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Evento 3</h1>
+            <a href="home"><button>Outros Eventos</button></a>
+            <br><br>
+            <p>Descrição do evento.</p>
+            <p><strong>Data:</strong> 03 de janeiro de 2025</p>
+            <p><strong>Horário:</strong> 19:00</p>
+            <p><strong>Local:</strong> Local do Evento</p>
+            <p><strong>Preço por ingresso:</strong> R$ 980,00</p>
+            <p><strong>Ingressos disponíveis:</strong> 100</p>
+            <label for="quantidadeIngressos">Selecione a quantidade de ingressos:</label>
+            <input type="number" id="quantidadeIngressos" min="1" max="100" value="1">
+            <p><strong>Total a pagar:</strong> <span id="totalPagar">R$ 980,00</span></p>
+            <button id="comprarIngresso">Comprar</button>
+        </div>
+    </main>
+    <script>
+        document.getElementById('quantidadeIngressos').addEventListener('change', function() {
+            const quantidade = parseInt(this.value);
+            const precoUnitario = 980;
+            const totalPagar = quantidade * precoUnitario;
+            document.getElementById('totalPagar').textContent = `R$ ${totalPagar.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+        });
+    </script>
+</body>
+</html>

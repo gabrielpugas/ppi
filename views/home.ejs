@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/home.css">
+    <title>Ingressos Online</title>
+</head>
+<body>
+    
+<header>
+    <div class="container">
+        <h1>Ingressos Online</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/home">Eventos</a></li>
+                <li><a id="sair" href="/sair">Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <h1>Catálogo de Eventos</h1>
+    
+    <div class="eventos">
+        <div class="evento">
+            <h2>Evento 1</h2>
+            <p>Descrição do evento 1.</p>
+            <a href="1">Detalhes</a>
+        </div>
+        <div class="evento">
+            <h2>Evento 2</h2>
+            <p>Descrição do evento 2.</p>
+            <a href="2">Detalhes</a>
+        </div>
+        <div class="evento">
+            <h2>Evento 3</h2>
+            <p>Descrição do evento 3.</p>
+            <a href="3">Detalhes</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementById('sair').addEventListener('click', function() {
+        fetch('/sair')
+            .then(response => {
+                if (response.ok) {
+                    // Cookie excluído com sucesso, recarrega a página
+                    window.location.reload();
+                } else {
+                    console.error('Falha ao excluir o cookie');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao excluir o cookie:', error);
+            });
+    });
+</script>
+</html>
